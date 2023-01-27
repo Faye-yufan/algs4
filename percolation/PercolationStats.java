@@ -4,7 +4,6 @@
  *  Last modified:     1/1/2019
  **************************************************************************** */
 
-import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdStats;
@@ -32,7 +31,7 @@ public class PercolationStats {
                     openedSites++;
                 }
             }
-            double fraction = openedSites / (n * n);
+            double fraction = (double) openedSites / (n * n);
             fractions[expNum] = fraction;
         }
     }
@@ -58,8 +57,8 @@ public class PercolationStats {
     }
 
     public static void main(String[] args) {
-        int[] input = StdIn.readAllInts();
-        int n = input[0], t = input[1];
+        // int[] input = StdIn.readAllInts();
+        int n = Integer.parseInt(args[0]), t = Integer.parseInt(args[1]);
 
         PercolationStats ps = new PercolationStats(n, t);
 

@@ -17,7 +17,7 @@ public class Percolation {
 
     // creates n-by-n grid, with all sites initially blocked
     public Percolation(int n) {
-        if (n < 0) {
+        if (n <= 0) {
             throw new IllegalArgumentException();
         }
         size = n;
@@ -31,7 +31,7 @@ public class Percolation {
     public void open(int row, int col) {
         checkException(row, col);
         opened[row - 1][col - 1] = true;
-        openSites++;
+        ++openSites;
 
         int indexNum = getQuickFindIndex(row, col);
         // if top row opened, union(cell, top)
@@ -63,6 +63,7 @@ public class Percolation {
 
     // is the site (row, col) open?
     public boolean isOpen(int row, int col) {
+        checkException(row, col);
         return opened[row - 1][col - 1];
     }
 
